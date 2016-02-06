@@ -1,7 +1,7 @@
 --[[
-LuCI - Lua Configuration Interface - Internet access control
+LuCI - Lua Configuration Interface - Device sharing
 
-Copyright 2015 Krzysztof Szuster.
+Copyright 2015 Stephen Groat.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -12,18 +12,18 @@ You may obtain a copy of the License at
 $Id$
 ]]--
 
-module("luci.controller.access_control", package.seeall)
+module("luci.controller.device_sharing", package.seeall)
 
 function index()
 	if not nixio.fs.access("/etc/config/firewall") then
 		return
 	end
---	if not nixio.fs.access("/etc/config/access_control") then
+--	if not nixio.fs.access("/etc/config/device_sharing") then
 --		return
 --	end
 	
 	local page
-	page = entry({"admin", "network", "access_control"}, 
-	    cbi("access_control"), _("Access Control"))
+	page = entry({"admin", "network", "device_sharing"}, 
+	    cbi("device_sharing"), _("Device Sharing"))
 	page.dependent = true
 end
