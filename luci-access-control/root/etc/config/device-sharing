@@ -1,4 +1,4 @@
 
-config access_control 'general'
+config device_sharing 'general'
 	option enabled '1'
 
