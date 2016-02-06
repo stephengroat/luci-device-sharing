@@ -16,10 +16,9 @@ local CONFIG_FILE_RULES = "firewall"
 local CONFIG_FILE_SD    = "device_sharing"
 local ma, mr, s, o
 
-ma = Map(CONFIG_FILE_DS, translate("Internet Access Control"),
-    translate("Access Control allows you to manage internet access for specific local hosts.<br/>\
-       Each rule defines which user has blocked access to the internet. The rules may be active permanently or in certain time of day.<br/>\
-       The rules may also be restricted to specific days of the week."))
+ma = Map(CONFIG_FILE_DS, translate("Device Sharing"),
+    translate("Device Sharing allows you to share specific device between networks.<br/>\
+       Each rule defines which device is shared between which network."))
 if CONFIG_FILE_DS==CONFIG_FILE_RULES then
     mr = ma
 else
@@ -28,7 +27,7 @@ end
 ---------------------------------------------------------------------------------------------
 --  General switch
 
-s = ma:section(NamedSection, "general", "access_control", "General switch")
+s = ma:section(NamedSection, "general", "device_sharing", "General switch")
     o_global_enable = s:option(Flag, "enabled", translate("Enabled"))
         o_global_enable.rmempty = false
         
