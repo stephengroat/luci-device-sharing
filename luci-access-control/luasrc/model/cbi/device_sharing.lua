@@ -1,7 +1,7 @@
 --[[
-LuCI - Lua Configuration Interface - Internet access control
+LuCI - Lua Configuration Interface - Device Sharing
 
-Copyright 2015 Krzysztof Szuster.
+Copyright 2015 Stephen Groat
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -13,14 +13,14 @@ $Id$
 ]]--
 
 local CONFIG_FILE_RULES = "firewall"  
-local CONFIG_FILE_AC    = "access_control"
+local CONFIG_FILE_SD    = "device_sharing"
 local ma, mr, s, o
 
-ma = Map(CONFIG_FILE_AC, translate("Internet Access Control"),
+ma = Map(CONFIG_FILE_DS, translate("Internet Access Control"),
     translate("Access Control allows you to manage internet access for specific local hosts.<br/>\
        Each rule defines which user has blocked access to the internet. The rules may be active permanently or in certain time of day.<br/>\
        The rules may also be restricted to specific days of the week."))
-if CONFIG_FILE_AC==CONFIG_FILE_RULES then
+if CONFIG_FILE_DS==CONFIG_FILE_RULES then
     mr = ma
 else
     mr = Map(CONFIG_FILE_RULES)
@@ -160,7 +160,7 @@ s = mr:section(TypedSection, "rule", translate("Client Rules"))
     end
 
 
-if CONFIG_FILE_AC==CONFIG_FILE_RULES then
+if CONFIG_FILE_DS==CONFIG_FILE_RULES then
   return ma
 else
   return ma, mr
